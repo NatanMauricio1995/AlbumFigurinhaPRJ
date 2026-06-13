@@ -1,34 +1,123 @@
-.sidebar{
-    width:250px;
-    min-height:100vh;
+/* =============================================
+   SIDEBAR.CSS — Navegação lateral · FigurinhaBase
+   ============================================= */
 
-    background:#041C5A;
-
-    display:flex;
-    flex-direction:column;
-
-    padding:20px;
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: var(--bg-nav);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px;
+  overflow-y: auto;
+  flex-shrink: 0;
 }
 
-.sidebar h2{
-    color:white;
-    margin-bottom:30px;
+/* ---------- Rótulo de seção ---------- */
+.sidebar-section-label {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0 8px;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+.sidebar-section-label:first-child {
+  margin-top: 0;
 }
 
-.menu-item{
-    color:white;
-
-    text-decoration:none;
-
-    padding:12px;
-
-    border-radius:8px;
-
-    margin-bottom:10px;
-
-    transition:.3s;
+/* ---------- Item de menu ---------- */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+  margin-bottom: 2px;
 }
 
-.menu-item:hover{
-    background:#0B3D91;
+.menu-item i {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.menu-item:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.menu-item.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+/* Empurra o pill de contagem pro lado direito */
+.menu-item .pill {
+  margin-left: auto;
+}
+
+/* ---------- Barra de progresso do álbum ---------- */
+.sidebar-progress {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.progress-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 14px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.progress-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.progress-pct {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.progress-track {
+  height: 5px;
+  background: var(--border-soft);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--grad-action);
+  border-radius: var(--radius-full);
+  transition: width 0.4s ease;
+}
+
+.progress-counts {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--text-muted);
 }

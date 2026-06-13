@@ -1,99 +1,208 @@
-.page{
-    padding:30px;
+/* =============================================
+   ADMIN.CSS — Painel administrativo · FigurinhaBase
+   ============================================= */
+
+/* ---------- Container da página ---------- */
+.page {
+  padding: 28px;
 }
 
-.page-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    margin-bottom:25px;
+/* ---------- Cabeçalho ---------- */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
 }
 
-.page-header h1{
-    color:#041C5A;
+.page-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
 }
 
-.page-header button{
-    background:#041C5A;
-    color:white;
-
-    border:none;
-
-    padding:12px 18px;
-
-    border-radius:8px;
-
-    cursor:pointer;
+/* ---------- Cards de métrica (topo) ---------- */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
-.tabela{
-    width:100%;
-
-    border-collapse:collapse;
-
-    background:white;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 4px 10px rgba(0,0,0,.15);
+.admin-metric {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
 }
 
-.tabela th{
-    background:#041C5A;
-    color:white;
-
-    padding:15px;
+.admin-metric-value {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 4px;
 }
 
-.tabela td{
-    padding:15px;
-
-    border-bottom:1px solid #ddd;
+.admin-metric-label {
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 
-.tabela button{
-    margin-right:10px;
-
-    border:none;
-
-    padding:8px 12px;
-
-    border-radius:6px;
-
-    cursor:pointer;
+/* ---------- Tabela ---------- */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
 }
 
-.form{
-    display:flex;
-    flex-direction:column;
+/* Wrapper para scroll horizontal em mobile */
+.tabela-wrap {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  overflow-x: auto;
+  margin-bottom: 28px;
+}
 
-    gap:15px;
+.tabela th {
+  background: var(--bg-nav);
+  color: var(--text-secondary);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border-subtle);
+}
 
-    max-width:500px;
+.tabela td {
+  padding: 13px 16px;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.tabela tr:last-child td { border-bottom: none; }
+
+.tabela tr:hover td { background: var(--bg-hover); }
+
+/* Badge de status na tabela */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+.status-badge.ativo {
+  background: rgba(0, 200, 120, 0.1);
+  color: var(--color-green);
+}
+.status-badge.inativo {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+}
+.status-badge.foil {
+  background: rgba(255, 180, 0, 0.1);
+  color: var(--color-gold);
+}
+
+/* Ações na tabela */
+.tabela-acoes {
+  display: flex;
+  gap: 6px;
+}
+
+.tabela-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  font-size: 12px;
+  font-family: var(--font);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.tabela-btn:hover { background: var(--bg-hover); color: var(--text-primary); }
+.tabela-btn.danger:hover {
+  background: rgba(255, 77, 77, 0.08);
+  border-color: rgba(255, 77, 77, 0.2);
+  color: var(--color-red);
+}
+
+/* ---------- Formulário de admin ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 480px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  letter-spacing: 0.2px;
 }
 
 .form input,
-.form select{
-    padding:12px;
-
-    border:1px solid #ccc;
-
-    border-radius:8px;
+.form select,
+.form textarea {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 13px;
+  font-family: var(--font);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--transition);
 }
 
-.form button{
-    background:#041C5A;
-    color:white;
+.form input::placeholder,
+.form select::placeholder { color: var(--text-muted); }
 
-    border:none;
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 3px rgba(0, 207, 255, 0.05);
+}
 
-    padding:12px;
+.form select option { background: var(--bg-surface); }
 
-    border-radius:8px;
+.form button { width: 100%; }
 
-    cursor:pointer;
+/* ---------- Seção de formulário ---------- */
+.form-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  max-width: 520px;
+}
+
+.form-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
 }

@@ -1,81 +1,57 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import "../../styles/splash.css";
 import logo from "../../assets/Logo.png";
 
+import "../../styles/splash.css";
+
 export default function Splash() {
-    const [percentual, setPercentual] = useState(0);
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        const intervalo = setInterval(() => {
 
-            setPercentual((valor) => {
+        const timer = setTimeout(() => {
 
-                if (valor >= 100) {
+            navigate("/login");
 
-                    clearInterval(intervalo);
+        }, 3500);
 
-                    setTimeout(() => {
-                        navigate("/login");
-                    }, 500);
-
-                    return 100;
-                }
-
-                return valor + 1;
-            });
-
-        }, 30);
-
-        return () => clearInterval(intervalo);
+        return () => clearTimeout(timer);
 
     }, [navigate]);
 
     return (
+
         <div className="splash-page">
+
             <div className="splash">
 
-                <img
-                    src={logo}
-                    alt="FiguMania"
-                    className="logo"
-                />
+            <img
+                src={logo}
+                alt="FiguMania"
+                className="splash-logo"
+            />
 
-                <p className="subtitulo">
-                    Seu álbum de figurinhas digital
-                </p>
-                
-                <p className="texto">
-                    Carregando coleção...
-                    <span className="percentual">
-                        {percentual}%
-                    </span>
-                </p>
 
-                <div className="barra">
 
-                    <div
-                        className="progresso"
-                        style={{
-                            width: `${percentual}%`
-                        }}
-                    />
+                <div className="splash-barra">
+
+                    <div className="splash-progresso" />
 
                 </div>
 
-                <span className="versao">
-                    Versão 1.0
+                <span className="splash-status">
+                    Carregando coleção...
                 </span>
 
-                <div className="equipe">
-                    Arthur Maia Rangel •
-                    Pedro Cancella Oliveira •
-                    Natan Mauricio Santos
-                </div>
             </div>
+
+            <span className="splash-versao">
+                Versão 1.0
+            </span>
+
         </div>
+
     );
 }

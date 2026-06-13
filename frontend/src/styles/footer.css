@@ -1,25 +1,78 @@
+/* =============================================
+   FOOTER.CSS — Rodapé · FigurinhaBase
+   ============================================= */
+
 .footer {
   width: 100%;
-  background: #041c5a;
-  color: white;
-  padding: 12px 20px;
+  background: var(--bg-nav);
+  border-top: 1px solid var(--border-subtle);
+  padding: 14px 24px;
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 50;
 }
 
+/* ---------- Layout interno ---------- */
 .footer-content {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
-.footer a {
-  color: white;
+/* ---------- Lado esquerdo: marca ---------- */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.footer-brand-icon {
+  width: 20px;
+  height: 20px;
+  background: var(--grad-action);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* ---------- Centro: links ---------- */
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  font-size: 12px;
   text-decoration: none;
+  transition: color var(--transition);
 }
 
-.footer a:hover {
-  color: #00e5ff;
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Lado direito: versão ---------- */
+.footer-version {
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+}
+
+.footer-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }

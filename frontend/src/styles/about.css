@@ -1,105 +1,155 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+/* =============================================
+   ABOUT.CSS — Página sobre o projeto · FigurinhaBase
+   ============================================= */
+
+/* ---------- Página inteira ---------- */
+.about-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background:
+    radial-gradient(ellipse at 15% 60%, rgba(0, 85, 255, 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 25%, rgba(0, 207, 255, 0.10) 0%, transparent 50%),
+    var(--bg-base);
 }
 
-.container{
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:30px;
-
-    background:linear-gradient(
-        135deg,
-        #041C5A,
-        #0B3D91,
-        #02133B
-    );
+/* ---------- Card principal ---------- */
+.about-card {
+  width: 680px;
+  max-width: 100%;
+  background: var(--bg-nav);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-xl);
+  padding: 48px;
 }
 
-.card{
-    width:700px;
-    max-width:95%;
-
-    background:white;
-
-    padding:50px;
-
-    border-radius:25px;
-
-    text-align:center;
-
-    box-shadow:
-        0 20px 40px rgba(0,0,0,.25);
+/* ---------- Topo: ícone + título ---------- */
+.about-header {
+  text-align: center;
+  margin-bottom: 36px;
 }
 
-.logo{
-    width:250px;
-    margin-bottom:15px;
+.about-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--grad-action);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
+  margin: 0 auto 20px;
 }
 
-h1{
-    color:#041C5A;
-    font-size:56px;
-    margin-bottom:15px;
+.about-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
 }
 
-.descricao{
-    color:#555;
-    font-size:15px;
-    line-height:1.7;
-    margin-bottom:35px;
-    margin-top:35px;
+.descricao {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
 }
 
-.info-box{
-    background:#f4f7ff;
-
-    border-radius:15px;
-
-    padding:25px;
-
-    margin-bottom:30px;
+/* ---------- Caixa de info (membros, tecnologias) ---------- */
+.info-box {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 24px;
 }
 
-.info-box h3{
-    color:#041C5A;
-    margin-bottom:20px;
+.info-box-title {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
 }
 
-.membro{
-    padding:15px;
+/* ---------- Lista de membros ---------- */
+.membro {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.membro:last-child { border-bottom: none; }
 
-    font-size:18px;
-
-    border-bottom:1px solid #dcdcdc;
+.membro-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--grad-action);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  flex-shrink: 0;
 }
 
-.membro:last-child{
-    border-bottom:none;
+.membro-info {
+  flex: 1;
 }
 
-.detalhes{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-
-    flex-wrap:wrap;
+.membro-nome {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
 }
 
-.item{
-    background:#041C5A;
+.membro-cargo {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
 
-    color:white;
+/* ---------- Chips / tags de detalhes ---------- */
+.detalhes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-    padding:12px 20px;
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  transition: border-color var(--transition), color var(--transition);
+}
+.item:hover {
+  border-color: var(--accent-border);
+  color: var(--accent);
+}
 
-    border-radius:10px;
+.item i { font-size: 14px; }
 
-    font-size:16px;
+.about-logo {
+  width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+
+  filter:
+    drop-shadow(0 0 15px rgba(0, 207, 255, 0.15));
 }

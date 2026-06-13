@@ -1,61 +1,130 @@
-.header{
-    height:80px;
+/* =============================================
+   HEADER.CSS — Barra superior · FigurinhaBase
+   ============================================= */
 
-    background:#041C5A;
-
-    color:white;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 30px;
-
-    box-shadow:
-        0 4px 10px rgba(0,0,0,.15);
+.header {
+  height: 60px;
+  background: var(--bg-nav);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.header-left{
-    display:flex;
-    align-items:center;
-    gap:15px;
+/* ---------- Lado esquerdo: marca ---------- */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.header-logo{
-    height:50px;
+.header-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--grad-action);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: #fff;
+  flex-shrink: 0;
 }
 
-.header-title{
-    font-size:24px;
-    font-weight:bold;
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
-.header-right{
-    display:flex;
-    align-items:center;
-    gap:20px;
+.header-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+  line-height: 1;
 }
 
-.usuario{
-    font-size:16px;
+.header-sub {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
-.logout-btn{
-    border:none;
-
-    background:#00BFFF;
-
-    color:white;
-
-    padding:10px 18px;
-
-    border-radius:8px;
-
-    cursor:pointer;
-
-    font-weight:bold;
+/* ---------- Lado direito ---------- */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.logout-btn:hover{
-    opacity:.9;
+/* Badge de XP / pontos */
+.header-xp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+}
+
+/* Avatar do usuário */
+.header-avatar {
+  width: 34px;
+  height: 34px;
+  background: var(--grad-action);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  border: 2px solid var(--border-subtle);
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+.header-avatar:hover { opacity: 0.85; }
+
+/* Nome do usuário (opcional, visível em telas maiores) */
+.header-username {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Botão de logout */
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 400;
+  transition: background var(--transition), color var(--transition);
+}
+.logout-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.header-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
