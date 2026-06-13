@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FiguMania</title>
+
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <img
+            src="../assets/Logo.png"
+            alt="FiguMania"
+            class="logo"
+        >
+
+        <h1>Bem-vindo</h1>
+
+        <form id="loginForm">
+
+            <div class="campo">
+                <label>Usuário</label>
+                <input
+                    type="text"
+                    id="usuario"
+                    placeholder="Digite seu usuário"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label>Senha</label>
+                <input
+                    type="password"
+                    id="senha"
+                    placeholder="Digite sua senha"
+                    required
+                >
+            </div>
+
+            <button type="submit">
+                Entrar
+            </button>
+
+        </form>
+
+        <a href="#" class="link">
+            Esqueci minha senha
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        const usuario =
+            document.getElementById("usuario").value;
+
+        const senha =
+            document.getElementById("senha").value;
+
+        console.log(usuario);
+        console.log(senha);
+
+        // Futuramente integrar com backend Java
+
+        alert("Login realizado com sucesso!");
+
+    });
+
+</script>
+
+</body>
+</html>
