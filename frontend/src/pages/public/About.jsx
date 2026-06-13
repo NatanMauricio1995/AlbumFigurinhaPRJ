@@ -16,28 +16,38 @@ export default function About() {
                 <h1>FiguMania</h1>
 
                 <p className="descricao">
-                    Sistema Web para gerenciamento
-                    de álbuns de figurinhas,
-                    desenvolvido como trabalho da
-                    disciplina IST P1 - 2026/01.
+                    Álbum de Figurinhas Virtual desenvolvido
+                    como trabalho da disciplina PRJ - 2026/01.
                 </p>
 
-                <h2>Equipe</h2>
+                <div className="info-box">
 
-                <ul className="integrantes">
-                    <li>Arthur Maia Rangel</li>
-                    <li>Pedro Cancella Oliveira</li>
-                    <li>Natan Mauricio Santos</li>
-                </ul>
+                    <h3>👨‍💻 Equipe de Desenvolvimento</h3>
 
-                <div className="info">
-                    <p>
-                        <strong>Versão:</strong> 1.0
-                    </p>
+                    <div className="membro">
+                        Arthur Maia Rangel
+                    </div>
 
-                    <p>
-                        <strong>Semestre:</strong> 2026/01
-                    </p>
+                    <div className="membro">
+                        Pedro Cancella Oliveira
+                    </div>
+
+                    <div className="membro">
+                        Natan Mauricio Santos
+                    </div>
+
+                </div>
+
+                <div className="detalhes">
+
+                    <div className="item">
+                        🚀 <strong>Versão:</strong> 1.0
+                    </div>
+
+                    <div className="item">
+                        📅 <strong>Semestre:</strong> 2026/01
+                    </div>
+
                 </div>
 
             </div>
