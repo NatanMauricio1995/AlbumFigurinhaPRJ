@@ -1,0 +1,121 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #041C5A,
+        #0B3D91,
+        #02133B
+    );
+
+    overflow:hidden;
+}
+
+.splash{
+    width:100%;
+    max-width:900px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.logo{
+    width:500px;
+    max-width:80%;
+
+    animation:
+        aparecer 1s ease,
+        flutuar 2s ease-in-out infinite;
+}
+
+.texto{
+    margin-top:40px;
+
+    color:white;
+    font-size:22px;
+    font-family:Arial;
+}
+
+.barra{
+    width:500px;
+    max-width:80%;
+
+    height:20px;
+
+    margin-top:20px;
+
+    border-radius:20px;
+    overflow:hidden;
+
+    background:#ffffff22;
+
+    border:2px solid white;
+}
+
+.progresso{
+    height:100%;
+    width:0%;
+
+    background:linear-gradient(
+        90deg,
+        #00E5FF,
+        #00FFC8
+    );
+
+    animation:carregar 3s linear forwards;
+}
+
+.versao{
+    margin-top:15px;
+
+    color:#ffffffaa;
+    font-size:14px;
+}
+
+@keyframes carregar{
+    from{
+        width:0%;
+    }
+
+    to{
+        width:100%;
+    }
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes flutuar{
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
