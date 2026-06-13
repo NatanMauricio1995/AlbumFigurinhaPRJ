@@ -22,7 +22,7 @@ export default function About() {
 
                 <div className="info-box">
 
-                    <h3>👨‍💻 Equipe de Desenvolvimento</h3>
+                    <h3> Equipe de Desenvolvimento</h3>
 
                     <div className="membro">
                         Arthur Maia Rangel
@@ -41,11 +41,11 @@ export default function About() {
                 <div className="detalhes">
 
                     <div className="item">
-                        🚀 <strong>Versão:</strong> 1.0
+                        <strong>Versão:</strong> 1.0
                     </div>
 
                     <div className="item">
-                        📅 <strong>Semestre:</strong> 2026/01
+                        <strong>Semestre:</strong> 2026/01
                     </div>
 
                 </div>

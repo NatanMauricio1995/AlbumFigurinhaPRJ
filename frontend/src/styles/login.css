@@ -5,7 +5,8 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
-body{
+.container{
+    width:100%;
     min-height:100vh;
 
     display:flex;
@@ -18,13 +19,10 @@ body{
         #0B3D91,
         #02133B
     );
+
+    padding:30px;
 }
 
-.container{
-    width:100%;
-    display:flex;
-    justify-content:center;
-}
 
 .card{
     width:420px;

@@ -1,18 +1,31 @@
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
+  useLocation
 } from "react-router-dom";
 
 import Splash from "./pages/public/Splash";
 import Login from "./pages/public/Login";
 import About from "./pages/public/About";
 
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-function App() {
+function Layout() {
+
+  const location = useLocation();
+
+  const mostrarHeader =
+    !["/", "/login", "/about"].includes(
+      location.pathname
+    );
+
   return (
-    <BrowserRouter>
+    <>
+      {mostrarHeader && (
+        <Header />
+      )}
 
       <Routes>
 
@@ -34,9 +47,14 @@ function App() {
       </Routes>
 
       <Footer />
-
-    </BrowserRouter>
+    </>
   );
 }
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Layout />
+    </BrowserRouter>
+  );
+}

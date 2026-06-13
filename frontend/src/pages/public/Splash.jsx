@@ -35,44 +35,46 @@ export default function Splash() {
     }, [navigate]);
 
     return (
-        <div className="splash">
+        <div className="splash-page">
+            <div className="splash">
 
-            <img
-                src={logo}
-                alt="FiguMania"
-                className="logo"
-            />
-
-            <p className="subtitulo">
-                Seu álbum de figurinhas digital
-            </p>
-            
-            <p className="texto">
-                Carregando coleção...
-                <span className="percentual">
-                    {percentual}%
-                </span>
-            </p>
-
-            <div className="barra">
-
-                <div
-                    className="progresso"
-                    style={{
-                        width: `${percentual}%`
-                    }}
+                <img
+                    src={logo}
+                    alt="FiguMania"
+                    className="logo"
                 />
 
-            </div>
+                <p className="subtitulo">
+                    Seu álbum de figurinhas digital
+                </p>
+                
+                <p className="texto">
+                    Carregando coleção...
+                    <span className="percentual">
+                        {percentual}%
+                    </span>
+                </p>
 
-            <span className="versao">
-                Versão 1.0
-            </span>
+                <div className="barra">
 
-            <div className="equipe">
-                Arthur Maia Rangel •
-                Pedro Cancella Oliveira •
-                Natan Mauricio Santos
+                    <div
+                        className="progresso"
+                        style={{
+                            width: `${percentual}%`
+                        }}
+                    />
+
+                </div>
+
+                <span className="versao">
+                    Versão 1.0
+                </span>
+
+                <div className="equipe">
+                    Arthur Maia Rangel •
+                    Pedro Cancella Oliveira •
+                    Natan Mauricio Santos
+                </div>
             </div>
         </div>
     );
