@@ -29,6 +29,8 @@ import NovaFigurinha from "./pages/colecionador/NovaFigurinha";
 import FigurinhaDetalhe from "./pages/colecionador/FigurinhaDetalhe";
 import ColecionadorDashboard from "./pages/colecionador/Dashboard";
 
+import ConfiguracaoAlbum from "./pages/autor/ConfiguracaoAlbum";
+
 function Layout() {
 
   return (
@@ -146,6 +148,15 @@ function Layout() {
               <FigurinhaDetalhe />
             </AdminLayout>
           }
+        />
+
+        <Route
+            path="/autor/configuracao-album"
+            element={
+                <AdminLayout perfil="autor">
+                    <ConfiguracaoAlbum />
+                </AdminLayout>
+            }
         />
 
       </Routes>

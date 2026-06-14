@@ -45,7 +45,13 @@ export default function Sidebar({ perfil }) {
                 nome: "Nova Figurinha",
                 rota: "/autor/figurinha-form",
                 icone: "🖼️"
+            },
+            {
+                nome: "Configurações",
+                rota: "/autor/configuracao-album",
+                icone: "⚙️"
             }
+
         ],
 
         colecionador: [

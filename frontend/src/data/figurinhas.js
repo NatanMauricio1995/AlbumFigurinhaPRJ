@@ -2,92 +2,97 @@ export const figurinhas = [
 
     {
         id: 1,
-        codigo: "BEN001",
+
+        numero: 1,
+
         nome: "Heatblast",
-        categoria: "Alienígenas",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
+
+        descricao:
+            "Alienígena de fogo do Omnitrix.",
+
+        pagina: 1,
+
+        tag:
+            "heatblast-md5",
+
+        foto:
+            "🔥"
     },
 
     {
         id: 2,
-        codigo: "BEN002",
+
+        numero: 2,
+
         nome: "XLR8",
-        categoria: "Alienígenas",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
+
+        descricao:
+            "Alienígena extremamente veloz.",
+
+        pagina: 1,
+
+        tag:
+            "xlr8-md5",
+
+        foto:
+            "⚡"
     },
 
     {
         id: 3,
-        codigo: "BEN003",
-        nome: "Four Arms",
-        categoria: "Alienígenas",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
+
+        numero: 3,
+
+        nome: "Diamondhead",
+
+        descricao:
+            "Alienígena de cristal.",
+
+        pagina: 1,
+
+        tag:
+            "diamondhead-md5",
+
+        foto:
+            "💎"
     },
 
     {
         id: 4,
-        codigo: "BEN004",
-        nome: "Diamondhead",
-        categoria: "Alienígenas",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
+
+        numero: 4,
+
+        nome: "Four Arms",
+
+        descricao:
+            "Alienígena super forte.",
+
+        pagina: 2,
+
+        tag:
+            "fourarms-md5",
+
+        foto:
+            "💪"
     },
 
     {
         id: 5,
-        codigo: "BEN005",
+
+        numero: 5,
+
         nome: "Ghostfreak",
-        categoria: "Alienígenas",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
-    },
 
-    {
-        id: 6,
-        codigo: "BEN006",
-        nome: "Ben Tennyson",
-        categoria: "Heróis",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
-    },
+        descricao:
+            "Alienígena fantasma.",
 
-    {
-        id: 7,
-        codigo: "BEN007",
-        nome: "Gwen Tennyson",
-        categoria: "Heróis",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
-    },
+        pagina: 2,
 
-    {
-        id: 8,
-        codigo: "BEN008",
-        nome: "Vovô Max",
-        categoria: "Heróis",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
-    },
+        tag:
+            "ghostfreak-md5",
 
-    {
-        id: 9,
-        codigo: "BEN009",
-        nome: "Vilgax",
-        categoria: "Vilões",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
-    },
-
-    {
-        id: 10,
-        codigo: "BEN010",
-        nome: "Kevin Levin",
-        categoria: "Vilões",
-        albumId: 1,
-        imagem: "https://placehold.co/250x350"
+        foto:
+            "👻"
     }
 
 ];
