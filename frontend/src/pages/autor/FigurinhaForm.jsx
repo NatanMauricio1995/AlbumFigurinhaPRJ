@@ -1,6 +1,91 @@
+import { useState } from "react";
 import "../../styles/album.css";
 
 export default function FigurinhaForm() {
+
+    const [figurinha, setFigurinha] = useState({
+        nome: "",
+        numero: "",
+        pagina: "",
+        descricao: "",
+        foto: null,
+        preview: "",
+        tag: "Aguardando imagem..."
+    });
+
+    function alterarCampo(e) {
+
+        const { name, value } = e.target;
+
+        setFigurinha({
+            ...figurinha,
+            [name]: value
+        });
+
+    }
+
+    function alterarImagem(e) {
+
+        const arquivo = e.target.files[0];
+
+        if (!arquivo) return;
+
+        const preview = URL.createObjectURL(arquivo);
+
+        setFigurinha({
+
+            ...figurinha,
+            foto: arquivo,
+            preview,
+            tag: "Pronta para gerar MD5"
+        });
+
+    }
+
+    function salvar(e){
+
+        e.preventDefault();
+
+        if(
+            !figurinha.nome ||
+            !figurinha.numero ||
+            !figurinha.pagina
+        ){
+
+            alert("Preencha todos os campos obrigatórios.");
+
+            return;
+        }
+
+        console.log(figurinha);
+
+        alert("Figurinha cadastrada!");
+
+        setFigurinha({
+            nome: "",
+            numero: "",
+            pagina: "",
+            descricao: "",
+            foto: null,
+            preview: "",
+            tag: "Aguardando imagem..."
+        });
+
+    }
+
+    function cancelar() {
+
+        setFigurinha({
+            nome: "",
+            numero: "",
+            pagina: "",
+            descricao: "",
+            foto: null,
+            preview: "",
+            tag: "Aguardando imagem..."
+        });
+
+    }
 
     return (
 
@@ -22,7 +107,7 @@ export default function FigurinhaForm() {
 
             </div>
 
-            <form className="form">
+            <form className="form" onSubmit={salvar}>
 
                 <div>
 
@@ -32,7 +117,11 @@ export default function FigurinhaForm() {
 
                     <input
                         type="text"
+                        name="nome"
+                        value={figurinha.nome}
+                        onChange={alterarCampo}
                         placeholder="Heatblast"
+                        required
                     />
 
                 </div>
@@ -43,10 +132,15 @@ export default function FigurinhaForm() {
                         Número
                     </label>
 
-                    <input
-                        type="number"
-                        placeholder="1"
-                    />
+                <input
+                    type="number"
+                    name="numero"
+                    value={figurinha.numero}
+                    onChange={alterarCampo}
+                    placeholder="1"
+                    min="1"
+                    required
+                />
 
                 </div>
 
@@ -58,7 +152,12 @@ export default function FigurinhaForm() {
 
                     <input
                         type="number"
+                        name="pagina"
+                        value={figurinha.pagina}
+                        onChange={alterarCampo}
                         placeholder="1"
+                        min="1"
+                        required
                     />
 
                 </div>
@@ -71,6 +170,9 @@ export default function FigurinhaForm() {
 
                     <textarea
                         rows="5"
+                        name="descricao"
+                        value={figurinha.descricao}
+                        onChange={alterarCampo}
                         placeholder="Descrição da figurinha"
                     />
 
@@ -84,9 +186,44 @@ export default function FigurinhaForm() {
 
                     <input
                         type="file"
+                        accept="image/*"
+                        onChange={alterarImagem}
+                        required
                     />
 
                 </div>
+
+                {
+                    figurinha.preview && (
+
+                        <div
+                            style={{
+                                marginTop:20,
+                                textAlign:"center"
+                            }}
+                        >
+
+                            <img
+
+                                src={figurinha.preview}
+
+                                alt="Preview"
+
+                            style={{
+
+                                width:200,
+                                height:200,
+                                objectFit:"cover",
+                                borderRadius:12,
+                                border:"2px solid #444"
+                            }}
+
+                            />
+
+                        </div>
+
+                    )
+                }
 
                 <div>
 
@@ -97,10 +234,18 @@ export default function FigurinhaForm() {
                     <input
                         type="text"
                         placeholder="Gerado automaticamente"
+                        value={figurinha.tag}
                         disabled
                     />
 
                 </div>
+
+                <button
+                    type="reset"
+                    className="secondary-button"
+                >
+                    Cancelar
+                </button>
 
                 <button
                     className="login-btn"
