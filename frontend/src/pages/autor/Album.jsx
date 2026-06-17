@@ -1,4 +1,5 @@
 import "../../styles/album.css";
+import { figurinhas } from "../../data/figurinhas";
 
 export default function Album() {
 
@@ -8,23 +9,41 @@ export default function Album() {
 
             <h1>Meu Álbum</h1>
 
-            <div className="cards">
+                <div className="cards">
 
-                <div className="card-figurinha">
-                    Figurinha 001
-                </div>
+                    {figurinhas.map((figurinha) => (
 
-                <div className="card-figurinha">
-                    Figurinha 002
-                </div>
+                        <div
+                            key={figurinha.id}
+                            className="card-figurinha"
+                        >
 
-                <div className="card-figurinha">
-                    Figurinha 003
-                </div>
+                            <div
+                                style={{
+                                    fontSize: "60px",
+                                    textAlign: "center"
+                                }}
+                            >
+                                {figurinha.foto}
+                            </div>
+
+                            <h3>
+                                #{figurinha.numero} - {figurinha.nome}
+                            </h3>
+
+                            <p>
+                                Página {figurinha.pagina}
+                            </p>
+
+                    </div>
+
+                ))}
 
             </div>
 
         </div>
+
+        
 
     );
 }
