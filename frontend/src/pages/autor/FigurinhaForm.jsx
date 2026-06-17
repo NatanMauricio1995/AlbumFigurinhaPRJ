@@ -241,8 +241,9 @@ export default function FigurinhaForm() {
                 </div>
 
                 <button
-                    type="reset"
+                    type="button"
                     className="secondary-button"
+                    onClick={cancelar}
                 >
                     Cancelar
                 </button>
