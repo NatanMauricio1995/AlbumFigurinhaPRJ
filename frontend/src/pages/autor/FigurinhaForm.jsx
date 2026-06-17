@@ -57,7 +57,9 @@ export default function FigurinhaForm() {
             return;
         }
 
-        console.log(figurinha);
+        salvarFigurinha({...figurinha, id: Date.now()});
+
+        navigate("/autor/album");
 
         alert("Figurinha cadastrada!");
 
