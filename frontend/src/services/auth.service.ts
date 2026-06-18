@@ -12,7 +12,12 @@ export async function login(nome: string, senha: string) {
 
     const usuario = usuarios.find(
         (u: any) =>
-            u.nome === nome &&
+            u.nome
+                .trim()
+                .toUpperCase() ===
+            nome
+                .trim()
+                .toUpperCase() &&
             u.senha === senha
     );
 
