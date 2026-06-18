@@ -1,24 +1,24 @@
 const API_URL = "http://localhost:8080/api/users";
 
-export async function login(usuario: string, senha: string) {
+export async function login(nome: string, senha: string) {
 
     const response = await fetch(API_URL);
 
     if (!response.ok) {
-        throw new Error("Não foi possível conectar ao servidor.");
+        throw new Error("Erro ao conectar ao servidor.");
     }
 
     const usuarios = await response.json();
 
-    const usuarioEncontrado = usuarios.find(
+    const usuario = usuarios.find(
         (u: any) =>
-            u.username === usuario &&
-            u.password === senha
+            u.nome === nome &&
+            u.senha === senha
     );
 
-    if (!usuarioEncontrado) {
+    if (!usuario) {
         throw new Error("Usuário ou senha inválidos.");
     }
 
-    return usuarioEncontrado;
+    return usuario;
 }
