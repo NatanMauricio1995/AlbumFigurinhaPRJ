@@ -25,3 +25,25 @@ export async function pesquisarUsuarios(nome: string) {
     return await response.json();
 
 }
+
+export async function salvarUsuario(usuario: any) {
+
+    const response = await fetch(API_URL, {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(usuario)
+
+    });
+
+    if (!response.ok) {
+        throw new Error("Erro ao salvar usuário.");
+    }
+
+    return await response.json();
+
+}

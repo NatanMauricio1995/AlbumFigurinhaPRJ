@@ -1,5 +1,5 @@
 import "../../styles/admin.css";
-
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
     listarUsuarios,
@@ -10,7 +10,7 @@ export default function Usuarios() {
 
     const [usuarios, setUsuarios] = useState([]);
     const [pesquisa, setPesquisa] = useState("");
-
+    const navigate = useNavigate();
     useEffect(() => {
 
         carregarUsuarios();
@@ -67,7 +67,11 @@ export default function Usuarios() {
 
                 <h1>Usuários</h1>
 
-                <button>
+                <button
+                    onClick={() =>
+                        navigate("/admin/usuario-form")
+                    }
+                >
                     Novo Usuário
                 </button>
 
