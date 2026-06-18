@@ -24,61 +24,57 @@ export default function Login() {
         const senhaDigitada =
             e.target.senha.value;
 
-        const usuario = await login(
-                usuarioDigitado,
+        try {
+
+            const usuario = await login(
+                usuarioDigitado.trim().toUpperCase(),
                 senhaDigitada
             );
-            try {
 
-                const usuario = await login(
-                    usuarioDigitado
-                        .trim()
-                        .toUpperCase(),
-                    senhaDigitada
-                );
+            localStorage.setItem(
+                "usuario",
+                usuario.nome
+            );
 
-                localStorage.setItem(
-                    "usuario",
-                    usuario.nome
-                );
+            localStorage.setItem(
+                "perfil",
+                usuario.perfil
+            );
 
-                localStorage.setItem(
-                    "perfil",
-                    usuario.perfil
-                );
+            const perfil =
+                usuario.perfil
+                    .trim()
+                    .toUpperCase();
 
-                const perfil =
-                    usuario.perfil
-                        .trim()
-                        .toUpperCase();
+            switch (perfil) {
 
-                switch (perfil) {
+                case "ADMIN":
+                    navigate("/admin/dashboard");
+                    return;
 
-                    case "ADMIN":
-                        navigate("/admin/dashboard");
-                        return;
+                case "AUTOR":
+                    navigate("/autor/dashboard");
+                    return;
 
-                    case "AUTOR":
-                        navigate("/autor/dashboard");
-                        return;
+                case "COLECIONADOR":
+                    navigate("/colecionador/dashboard");
+                    return;
 
-                    case "COLECIONADOR":
-                        navigate("/colecionador/dashboard");
-                        return;
-
-                    default:
-                        setErro("Perfil inválido.");
-                }
-
-            }
-            catch (error) {
-
-                setErro(error.message);
-
+                default:
+                    setErro("Perfil inválido.");
             }
 
+        }
+        catch (error) {
 
-       
+            setErro(
+                error instanceof Error
+                    ? error.message
+                    : "Erro ao realizar login."
+            );
+
+        }
+
     }
 
     return (
@@ -159,19 +155,19 @@ export default function Login() {
                     <br />
 
                     <span>
-                        admin / 123
+                        admin / 123456
                     </span>
 
                     {" • "}
 
                     <span>
-                        autor / 123
+                        autor / 123456
                     </span>
 
                     {" • "}
 
                     <span>
-                        colecionador / 123
+                        colecionador / 123456
                     </span>
 
                 </div>
@@ -181,4 +177,5 @@ export default function Login() {
         </div>
 
     );
+
 }
