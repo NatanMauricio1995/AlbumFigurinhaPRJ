@@ -4,7 +4,7 @@ import logo from "../../assets/Logo.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { usuarios } from "../../data/usuarios";
+import { login } from "../../services/auth.service";
 
 export default function Login() {
 
@@ -12,7 +12,7 @@ export default function Login() {
 
     const [erro, setErro] = useState("");
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
 
         e.preventDefault();
 
@@ -24,42 +24,61 @@ export default function Login() {
         const senhaDigitada =
             e.target.senha.value;
 
-        const usuario = usuarios.find(
-            u =>
-                u.usuario === usuarioDigitado &&
-                u.senha === senhaDigitada
-        );
-
-        if (!usuario) {
-
-            setErro(
-                "Usuário ou senha inválidos."
+        const usuario = await login(
+                usuarioDigitado,
+                senhaDigitada
             );
+            try {
 
-            return;
-        }
+                const usuario = await login(
+                    usuarioDigitado
+                        .trim()
+                        .toUpperCase(),
+                    senhaDigitada
+                );
 
-        localStorage.setItem(
-            "usuario",
-            usuario.nome
-        );
+                localStorage.setItem(
+                    "usuario",
+                    usuario.nome
+                );
 
-        localStorage.setItem(
-            "perfil",
-            usuario.perfil
-        );
+                localStorage.setItem(
+                    "perfil",
+                    usuario.perfil
+                );
 
-        if (usuario.perfil === "admin") {
-            navigate("/admin/dashboard");
-            return;
-        }
+                const perfil =
+                    usuario.perfil
+                        .trim()
+                        .toUpperCase();
 
-        if (usuario.perfil === "autor") {
-            navigate("/autor/dashboard");
-            return;
-        }
+                switch (perfil) {
 
-        navigate("/colecionador/dashboard");
+                    case "ADMIN":
+                        navigate("/admin/dashboard");
+                        return;
+
+                    case "AUTOR":
+                        navigate("/autor/dashboard");
+                        return;
+
+                    case "COLECIONADOR":
+                        navigate("/colecionador/dashboard");
+                        return;
+
+                    default:
+                        setErro("Perfil inválido.");
+                }
+
+            }
+            catch (error) {
+
+                setErro(error.message);
+
+            }
+
+
+       
     }
 
     return (
