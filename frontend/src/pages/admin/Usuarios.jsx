@@ -1,26 +1,66 @@
 import "../../styles/admin.css";
 
+import { useEffect, useState } from "react";
+import {
+    listarUsuarios,
+    pesquisarUsuarios
+} from "../../services/user.service";
+
 export default function Usuarios() {
 
-    const usuarios = [
-        {
-            id: 1,
-            nome: "Arthur Maia Rangel",
-            perfil: "Administrador"
-        },
-        {
-            id: 2,
-            nome: "Pedro Cancella Oliveira",
-            perfil: "Autor"
-        },
-        {
-            id: 3,
-            nome: "Natan Mauricio Santos",
-            perfil: "Colecionador"
+    const [usuarios, setUsuarios] = useState([]);
+    const [pesquisa, setPesquisa] = useState("");
+
+    useEffect(() => {
+
+        carregarUsuarios();
+
+    }, []);
+
+    async function carregarUsuarios() {
+
+        try {
+
+            const dados = await listarUsuarios();
+
+            setUsuarios(dados);
+
         }
-    ];
+        catch (erro) {
+
+            console.error(erro);
+
+        }
+
+    }
+
+    async function buscarUsuarios() {
+
+        try {
+
+            if (pesquisa.trim() === "") {
+
+                carregarUsuarios();
+                return;
+
+            }
+
+            const dados =
+                await pesquisarUsuarios(pesquisa);
+
+            setUsuarios(dados);
+
+        }
+        catch (erro) {
+
+            console.error(erro);
+
+        }
+
+    }
 
     return (
+
         <div className="page">
 
             <div className="page-header">
@@ -33,28 +73,60 @@ export default function Usuarios() {
 
             </div>
 
+            <div className="pesquisa">
+
+                <input
+                    type="text"
+                    placeholder="Pesquisar usuário..."
+                    value={pesquisa}
+                    onChange={(e) =>
+                        setPesquisa(e.target.value)
+                    }
+                />
+
+                <button
+                    onClick={buscarUsuarios}
+                >
+                    Pesquisar
+                </button>
+
+            </div>
+
             <table className="tabela">
 
                 <thead>
+
                     <tr>
+
                         <th>ID</th>
+
                         <th>Nome</th>
+
                         <th>Perfil</th>
+
                         <th>Ações</th>
+
                     </tr>
+
                 </thead>
 
                 <tbody>
 
-                    {usuarios.map(usuario => (
+                    {usuarios.map((usuario) => (
 
                         <tr key={usuario.id}>
 
-                            <td>{usuario.id}</td>
+                            <td>
+                                {usuario.id}
+                            </td>
 
-                            <td>{usuario.nome}</td>
+                            <td>
+                                {usuario.nome}
+                            </td>
 
-                            <td>{usuario.perfil}</td>
+                            <td>
+                                {usuario.perfil}
+                            </td>
 
                             <td>
 
@@ -77,5 +149,7 @@ export default function Usuarios() {
             </table>
 
         </div>
+
     );
+
 }

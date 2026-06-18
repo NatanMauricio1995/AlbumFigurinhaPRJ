@@ -11,3 +11,17 @@ export async function listarUsuarios() {
     return await response.json();
 
 }
+
+export async function pesquisarUsuarios(nome: string) {
+
+    const response = await fetch(
+        `${API_URL}?nome=${encodeURIComponent(nome)}`
+    );
+
+    if (!response.ok) {
+        throw new Error("Erro ao pesquisar usuários.");
+    }
+
+    return await response.json();
+
+}
